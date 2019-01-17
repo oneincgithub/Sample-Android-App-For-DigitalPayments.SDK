@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Digital Payments</string>
+    <string name="title_policy_holder_name">Policy Holder Name</string>
+    <string name="title_billing_address_street">Billing Address Street</string>
+    <string name="title_billing_zip">Billing Zip</string>
+    <string name="title_account_group_code">Account Group Code</string>
+    <string name="title_min_amount_due">Min Amount Due</string>
+    <string name="title_account_balance">Account Balance</string>
+    <string name="title_client_reference_data1">Client Reference Data 1</string>
+    <string name="title_make_payment">Make Payment</string>
+    <string name="title_save_payment">Save Payment</string>
+    <string name="title_open_dialog_button">Open Dialog</string>
+    <string name="title_settings">Settings</string>
+    <string name="pref_header_general">General</string>
+    <string name="session_service_url">http://localhost/DigitalPaymentsBackendSample/api/Session/Create</string>
+    <string name="title_session_service_url">SessionService URL</string>
+    <string name="generic_modal_url">http://localhost</string>
+    <string name="title_generic_modal_url">GenericModal URL</string>
+</resources>

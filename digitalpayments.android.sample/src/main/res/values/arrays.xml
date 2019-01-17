@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="paymentCategory">
+        <item>CreditCard</item>
+        <item>EChek</item>
+        <item>UserSelect</item>
+    </string-array>
+    <string-array name="feeContext">
+        <item>PaymentWithFee</item>
+        <item>PaymentWithoutFee</item>
+    </string-array>
+</resources>
