@@ -5,5 +5,5 @@ Used programming languages - Kotlin and Java.
 
 ## Installing
 
-Information about installing DigitalPayments.SDK library look at [documentation](https://devportalone.processonepayments.com/Help/Documentation/AndroidSDK) 
+Information about installing DigitalPayments.SDK library look at [documentation](https://developers.processonepayments.com/Help/Documentation/AndroidSDK) 
 
