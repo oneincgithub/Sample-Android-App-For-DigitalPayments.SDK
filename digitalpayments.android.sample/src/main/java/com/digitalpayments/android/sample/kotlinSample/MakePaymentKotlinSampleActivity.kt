@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_make_payment_test.*
 import com.digitalpayments.android.sdk.MakePaymentActivity
-import com.digitalpayments.android.sdk.models.MakePaymentRequest
 import com.digitalpayments.android.sample.R
 import android.databinding.DataBindingUtil
 import com.digitalpayments.android.sample.databinding.ActivityMakePaymentTestBinding
 import android.widget.ArrayAdapter
-import com.digitalpayments.android.sdk.models.PaymentCategory
-import com.digitalpayments.android.sdk.models.FeeContext
+import com.digitalpayments.android.sdk.models.*
 
 class MakePaymentKotlinSampleActivity : PaymentBaseKotlinSampleActivity() {
     private var binding: ActivityMakePaymentTestBinding? = null
@@ -29,9 +27,10 @@ class MakePaymentKotlinSampleActivity : PaymentBaseKotlinSampleActivity() {
     fun onClick(view: View) {
         return when (view.id) {
             R.id.openDialog -> {
-                MakePaymentActivity
+                eventService!!.paymentForm = MakePaymentActivity
                     .init(sessionKey, url!!)
                     .makePayment(binding!!.makePaymentRequest!!)
+                    .onLoad { eventService!!.onLoad() }
                     .onPaymentComplete { paymentInfo ->  eventService!!.onPaymentComplete(paymentInfo) }
                     .onPaymentCanceled { eventService!!.onPaymentCanceled() }
                     .onError { error -> eventService!!.onError(error) }

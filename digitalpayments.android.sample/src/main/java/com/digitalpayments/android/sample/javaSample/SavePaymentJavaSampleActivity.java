@@ -29,9 +29,10 @@ public class SavePaymentJavaSampleActivity extends PaymentBaseJavaSampleActivity
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.openDialog: {
-                SavePaymentMethodActivity
+                eventService.paymentForm = SavePaymentMethodActivity
                     .init(sessionKey, url)
                     .savePaymentMethod(binding.getSavePaymentMethodRequest())
+                    .onLoad(eventService.onLoad)
                     .onSaveComplete(eventService.onSaveComplete)
                     .onSaveCanceled(eventService.onSaveCanceled)
                     .onError(eventService.onError)

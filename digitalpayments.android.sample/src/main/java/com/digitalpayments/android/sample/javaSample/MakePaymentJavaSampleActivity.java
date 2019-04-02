@@ -8,9 +8,7 @@ import android.widget.Spinner;
 import com.digitalpayments.android.sample.databinding.ActivityMakePaymentTestBinding;
 import com.digitalpayments.android.sample.R;
 import com.digitalpayments.android.sdk.MakePaymentActivity;
-import com.digitalpayments.android.sdk.models.MakePaymentRequest;
-import com.digitalpayments.android.sdk.models.PaymentCategory;
-import com.digitalpayments.android.sdk.models.FeeContext;
+import com.digitalpayments.android.sdk.models.*;
 
 public class MakePaymentJavaSampleActivity extends PaymentBaseJavaSampleActivity {
     private ActivityMakePaymentTestBinding binding;
@@ -33,9 +31,10 @@ public class MakePaymentJavaSampleActivity extends PaymentBaseJavaSampleActivity
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.openDialog: {
-                MakePaymentActivity
+                eventService.paymentForm = MakePaymentActivity
                     .init(sessionKey, url)
                     .makePayment(binding.getMakePaymentRequest())
+                    .onLoad(eventService.onLoad)
                     .onPaymentComplete(eventService.onPaymentComplete)
                     .onPaymentCanceled(eventService.onPaymentCanceled)
                     .onError(eventService.onError)
@@ -47,5 +46,4 @@ public class MakePaymentJavaSampleActivity extends PaymentBaseJavaSampleActivity
                 break;
         }
     }
-
 }

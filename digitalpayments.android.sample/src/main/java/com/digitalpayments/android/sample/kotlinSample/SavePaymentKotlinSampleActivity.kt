@@ -27,10 +27,11 @@ class SavePaymentKotlinSampleActivity : PaymentBaseKotlinSampleActivity() {
     fun onClick(view: View) {
         return when (view.id) {
             R.id.openDialog -> {
-                SavePaymentMethodActivity
+                eventService!!.paymentForm = SavePaymentMethodActivity
                     .init(sessionKey, url!!)
                     .savePaymentMethod(binding!!.savePaymentMethodRequest !!)
-                    .onSaveComplete { saveResponse -> eventService!!.onSaveComplete(saveResponse) }
+                    .onLoad { eventService!!.onLoad() }
+                    .onSaveComplete { saveResponse -> eventService!!.onSaveComplete(saveResponse)}
                     .onSaveCanceled { eventService!!.onSaveCanceled() }
                     .onError { error -> eventService!!.onError(error) }
                     .onClose { eventService!!.onClose() }

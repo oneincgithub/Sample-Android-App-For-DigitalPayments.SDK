@@ -10,6 +10,7 @@ import com.digitalpayments.android.sample.R;
 import com.digitalpayments.android.sdk.context.ErrorHandler;
 import com.digitalpayments.android.sdk.context.PaymentCompleteHandler;
 import com.digitalpayments.android.sdk.context.SaveCompleteHandler;
+import com.digitalpayments.android.sdk.models.DigitalPaymentForm;
 
 import java.util.Random;
 
@@ -24,6 +25,8 @@ public class EventServiceJava {
     public Runnable onSaveCanceled;
     public Runnable onPaymentCanceled;
     public Runnable onClose;
+    public Runnable onLoad;
+    public DigitalPaymentForm paymentForm;
 
     EventServiceJava(Activity activity) {
         _activity = activity;
@@ -65,6 +68,10 @@ public class EventServiceJava {
                     Toast toast = Toast.makeText(_activity.getApplicationContext(), "onError", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+
+                if((getErrorResponse() != null && getErrorResponse().getDescription() != null) && getErrorResponse().getDescription().contains("Unavailable")){
+                    paymentForm.closeForm();
+                }
             }
         };
 
@@ -102,6 +109,19 @@ public class EventServiceJava {
                 }
                 else{
                     Toast toast = Toast.makeText(_activity.getApplicationContext(), "onClose", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
+        };
+
+        onLoad = new Runnable() {
+            @Override
+            public void run() {
+                if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    sendNotification(_activity, _notificationManager, "onLoad", "");
+                }
+                else{
+                    Toast toast = Toast.makeText(_activity.getApplicationContext(), "onLoad", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }

@@ -9,11 +9,14 @@ import java.util.*
 import com.digitalpayments.android.sample.R
 import com.digitalpayments.android.sdk.models.IPaymentInfo
 import android.widget.Toast
+import com.digitalpayments.android.sdk.models.DigitalPaymentForm
 import com.digitalpayments.android.sdk.models.ErrorResponse
 import com.digitalpayments.android.sdk.models.ISavePaymentMethodResponse
 
 class EventServiceKotlin(var activity: Activity){
     private var notificationManager: NotificationManager? = null
+    var paymentForm: DigitalPaymentForm? = null
+
     init {
         notificationManager =  activity.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
@@ -64,6 +67,10 @@ class EventServiceKotlin(var activity: Activity){
                 val toast = Toast.makeText(activity.applicationContext, "onError", Toast.LENGTH_SHORT)
                 toast.show()
             }
+
+            if(errorResponse.description?.contains("Unavailable")!! && paymentForm != null){
+                paymentForm!!.closeForm()
+            }
         }
 
     var onSaveCanceled: () -> Unit =
@@ -107,6 +114,21 @@ class EventServiceKotlin(var activity: Activity){
                 )
             } else {
                 val toast = Toast.makeText(activity.applicationContext, "onClose", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        }
+
+    var onLoad: () -> Unit =
+        fun() {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
+                sendNotification(
+                    activity,
+                    notificationManager!!,
+                    "onLoad",
+                    ""
+                )
+            } else {
+                val toast = Toast.makeText(activity.applicationContext, "onLoad", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
