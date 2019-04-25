@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.digitalpayments.paymentform.android.sample.PaymentCategoryConverter"/>
+        <import type="com.digitalpayments.paymentform.android.sample.ThemeTypeConverter"/>
+        <variable
+                name="savePaymentMethodRequest"
+                type="com.digitalpayments.paymentform.android.sdk.models.SavePaymentMethodRequest" />
+        <variable
+                name="theme"
+                type="com.digitalpayments.paymentform.android.sdk.models.ThemeType"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".kotlinSample.SavePaymentKotlinSampleActivity">
+    <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+        <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"
+                                                     android:id="@+id/linearLayout3">
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/policyHolderName"
+                    android:hint="@string/title_policy_holder_name"
+                    android:singleLine="true"
+                    tools:ignore="Autofill"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/paymentCategory"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.policyHolderName}"/>
+            <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/paymentCategory"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    app:layout_constraintTop_toBottomOf="@+id/policyHolderName"
+                    app:layout_constraintBottom_toTopOf="@+id/billingAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:selectedItemPosition="@={PaymentCategoryConverter.toInt(savePaymentMethodRequest.paymentCategory)}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/billingAddress"
+                    android:hint="@string/title_billing_address_street"
+                    tools:ignore="Autofill" android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@+id/paymentCategory"
+                    app:layout_constraintBottom_toTopOf="@+id/zipCode" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.billingAddressStreet}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:id="@+id/zipCode"
+                    android:hint="@string/title_billing_zip" android:singleLine="true"
+                    tools:ignore="Autofill"
+                    app:layout_constraintTop_toBottomOf="@+id/billingAddress"
+                    app:layout_constraintBottom_toTopOf="@+id/clientRefData"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.billingZip}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="text|textPersonName"
+                    android:ems="10"
+                    android:id="@+id/clientRefData"
+                    android:hint="@string/title_client_reference_data1"
+                    tools:ignore="Autofill" android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@+id/zipCode"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.clientReferenceData1}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="text|textPersonName"
+                    android:ems="10"
+                    android:id="@+id/clientRefData2"
+                    android:hint="@string/title_client_reference_data2"
+                    app:layout_constraintTop_toBottomOf="@+id/clientRefData"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    tools:ignore="Autofill" android:singleLine="true"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.clientReferenceData2}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="text|textPersonName"
+                    android:ems="10"
+                    android:id="@+id/clientRefData3"
+                    android:hint="@string/title_client_reference_data3"
+                    app:layout_constraintTop_toBottomOf="@+id/clientRefData2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    tools:ignore="Autofill" android:singleLine="true"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.clientReferenceData3}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="text|textPersonName"
+                    android:ems="10"
+                    android:id="@+id/clientRefData4"
+                    android:hint="@string/title_client_reference_data4"
+                    app:layout_constraintTop_toBottomOf="@+id/clientRefData3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    tools:ignore="Autofill" android:singleLine="true"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.clientReferenceData4}"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:inputType="text|textPersonName"
+                    android:ems="10"
+                    android:id="@+id/clientRefData5"
+                    android:hint="@string/title_client_reference_data5"
+                    app:layout_constraintTop_toBottomOf="@+id/clientRefData4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    tools:ignore="Autofill" android:singleLine="true"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@={savePaymentMethodRequest.clientReferenceData5}"/>
+            <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/themeType"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clientRefData5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintBottom_toTopOf="@+id/openNative"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:selectedItemPosition="@={ThemeTypeConverter.toInt(theme)}"/>
+            <Button
+                    android:text="@string/title_open_native_version_button"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/openNative"
+                    style="@style/Widget.AppCompat.Button.Borderless" android:background="@color/colorPrimary"
+                    android:textColor="#ffffff" android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/themeType"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" android:onClick="onClick"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp" android:layout_marginTop="24dp"
+                    app:layout_constraintBottom_toTopOf="@id/openDialog"/>
+            <Button
+                    android:text="@string/title_open_dialog_button"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/openDialog"
+                    style="@style/Widget.AppCompat.Button.Borderless" android:background="@color/colorPrimary"
+                    android:textColor="#ffffff" android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/openNative"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toEndOf="parent" android:onClick="onClick"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp" android:layout_marginTop="24dp"/>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+    <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:visibility="gone"/>
+</android.support.constraint.ConstraintLayout>
+</layout>

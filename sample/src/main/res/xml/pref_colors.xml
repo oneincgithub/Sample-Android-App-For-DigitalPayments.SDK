@@ -1,0 +1,105 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+            android:key="colorBackground"
+            android:title="@string/title_pref_color_background"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorBackground"/>
+
+    <EditTextPreference
+            android:key="colorPrimaryButton"
+            android:title="@string/title_pref_color_primary_button"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorPrimaryButton"/>
+
+    <EditTextPreference
+            android:key="colorPrimaryButtonText"
+            android:title="@string/title_pref_color_primary_button_text"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorPrimaryButtonText"/>
+
+    <EditTextPreference
+            android:key="colorSecondaryButton"
+            android:title="@string/title_pref_color_secondary_button"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorSecondaryButton"/>
+
+    <EditTextPreference
+            android:key="colorSecondaryButtonText"
+            android:title="@string/title_pref_color_second_text_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorSecondaryButtonText"/>
+
+    <EditTextPreference
+            android:key="colorCommonText"
+            android:title="@string/title_pref_common_text_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorCommonText"/>
+
+    <EditTextPreference
+            android:key="colorBackgroundHeader"
+            android:title="@string/title_pref_color_header_background"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorBackgroundHeader"/>
+
+    <EditTextPreference
+            android:key="colorToolbarText"
+            android:title="@string/title_pref_toolbar_text_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorToolbarText"/>
+
+    <EditTextPreference
+            android:key="colorTextHeader"
+            android:title="@string/title_pref_header_text_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorTextHeader"/>
+
+    <EditTextPreference
+            android:key="colorTextHint"
+            android:title="@string/title_pref_edit_text_hint_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorTextHint"/>
+
+    <EditTextPreference
+            android:key="colorEditTextBackgroundTint"
+            android:title="@string/title_pref_color_edit_text_background_tint"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorEditTextBackgroundTint"/>
+
+    <EditTextPreference
+            android:key="colorAccentText"
+            android:title="@string/title_pref_accent_text_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorAccentText"/>
+
+    <EditTextPreference
+            android:key="colorErrorText"
+            android:title="@string/title_pref_error_text_color"
+            android:inputType="textCapWords"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:id="@+id/colorErrorText"/>
+</PreferenceScreen>
